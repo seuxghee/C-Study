@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,7 +33,7 @@ namespace sample
         {
             ultraLabel1.Appearance.TextHAlign = Infragistics.Win.HAlign.Center;
         }
-
+        //placeholder 설정
         private void EngName(object sender, EventArgs e)
         {
 
@@ -50,17 +50,8 @@ namespace sample
                 textBox1.Text = "Eng Name";
             }
         }
-
-        private void ultraFormattedTextEditor5_LinkClicked(object sender, Infragistics.Win.FormattedLinkLabel.LinkClickedEventArgs e)
-        {
-            ultraFormattedTextEditor5.ForeColor = Color.Black;
-        }
-
-        private void ultraFormattedTextEditor17_LinkClicked(object sender, Infragistics.Win.FormattedLinkLabel.LinkClickedEventArgs e)
-        {
-            ultraFormattedTextEditor17.ForeColor = Color.Black;
-        }
-
+      
+        //버튼 색 변경
         private void ultraButton4_Click(object sender, EventArgs e)
         {
             ultraButton4.HotTrackAppearance.BackColor = Color.LightBlue;
@@ -70,12 +61,21 @@ namespace sample
         {
             ultraButton3.HotTrackAppearance.BackColor = Color.LightBlue;
         }
-
+        //텍스트박스 비활성화
         private void ultraPanel1_PaintClient(object sender, PaintEventArgs e)
         {
             ultraFormattedTextEditor27.Enabled = false;
         }
+        //텍스트박스 입력시 글자색 검정으로 변경
+        private void ultraFormattedTextEditor5_LinkClicked(object sender, Infragistics.Win.FormattedLinkLabel.LinkClickedEventArgs e)
+        {
+            ultraFormattedTextEditor5.ForeColor = Color.Black;
+        }
 
+        private void ultraFormattedTextEditor17_LinkClicked(object sender, Infragistics.Win.FormattedLinkLabel.LinkClickedEventArgs e)
+        {
+            ultraFormattedTextEditor17.ForeColor = Color.Black;
+        }
         private void ultraFormattedTextEditor18_LinkClicked(object sender, Infragistics.Win.FormattedLinkLabel.LinkClickedEventArgs e)
         {
             ultraFormattedTextEditor18.ForeColor = Color.Black;
@@ -109,7 +109,7 @@ namespace sample
         {
             ultraFormattedTextEditor27.ForeColor = Color.Black;
         }
-
+        //체크박스 체크시 텍스트박스 활성화
         private void checkBox12_CheckedChanged(object sender, EventArgs e)
         {
             ultraFormattedTextEditor27.Enabled = checkBox12.Checked;
