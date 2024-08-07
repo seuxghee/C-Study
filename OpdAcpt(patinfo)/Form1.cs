@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +30,7 @@ namespace sample
 
         }
 
-
+        //placeholder 부분
         private void Patnum(object sender, EventArgs e)
         {
             if (textBox1.Text == "Pat num")
@@ -111,10 +111,81 @@ namespace sample
                 textBox1.Text = "Eng name";
             }
         }
+        private void address(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Address")
+            {
+                textBox1.Text = "";
+            }
+        }
 
+        private void address1(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Address";
+            }
+        }
+        private void Phone(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Phone num")
+            {
+                textBox1.Text = "";
+            }
+        }
+        private void Phone1(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Phone num";
+            }
+        }
+        private void homenum(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Home num")
+            {
+                textBox1.Text = "";
+            }
+        }
+        private void homenum1(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Home num";
+            }
+        }
+        private void Birth(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Birth day")
+            {
+                textBox1.Text = "";
+            }
+        }
 
-       
+        private void Birth1(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Birth day";
+            }
+        }
 
+        private void Email(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Email")
+            {
+                textBox1.Text = "";
+            }
+        }
+
+        private void Email1(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Email";
+            }
+        }
+        //form 이동
         private void button1_Click(object sender, EventArgs e)
         {
             Form2 form2 = new Form2();
@@ -135,7 +206,7 @@ namespace sample
         {
 
         }
-
+        //입력할때 글씨색 검정으로 변경
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             textBox1.ForeColor = Color.Black;
@@ -217,86 +288,12 @@ namespace sample
         }
 
 
-        private void address(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "Address")
-            {
-                textBox1.Text = "";
-            }
-        }
-
-        private void address1(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                textBox1.Text = "Address";
-            }
-        }
-        private void Phone(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "Phone num")
-            {
-                textBox1.Text = "";
-            }
-        }
-        private void Phone1(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                textBox1.Text = "Phone num";
-            }
-        }
-        private void homenum(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "Home num")
-            {
-                textBox1.Text = "";
-            }
-        }
-        private void homenum1(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                textBox1.Text = "Home num";
-            }
-        }
-
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void Birth(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "Birth day")
-            {
-                textBox1.Text = "";
-            }
-        }
-
-        private void Birth1(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                textBox1.Text = "Birth day";
-            }
-        }
-
-        private void Email(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "Email")
-            {
-                textBox1.Text = "";
-            }
-        }
-
-        private void Email1(object sender, EventArgs e)
-        {
-            if (textBox1.Text == "")
-            {
-                textBox1.Text = "Email";
-            }
-        }
+       //체크박스 선택 시 텍스트박스 활성화 
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox18.Enabled = false;
