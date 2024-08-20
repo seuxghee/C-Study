@@ -68,7 +68,7 @@ namespace Date
                 ledCh1.Text = "OFF";
             }
         }
-        //새창열기
+        //새창열기 -새로운 form 추가 하고 Close(); 닫기 코드 입력
         private void btnOpen_Click(object sender, EventArgs e)
         {
             Form2 f2 = new Form2();
