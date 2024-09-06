@@ -60,38 +60,37 @@ namespace Education
                 return null;
             }
         }
-
-        private void btnResult_Click(object sender, EventArgs e) //조회버튼 클릭시 정보 불러오기
+        //수정
+         private void btnResult_Click(object sender, EventArgs e)
         {
-            string query = "";
-            Hashtable hParams = new Hashtable();
-            DataSet ds = new DataSet();
-            int idx = 0;
 
-
-            query = @"SELECT PATID, PATNAME, PRSNIDPRE, PRSNIDPOST, SEX, HOMEADDR, HANDPHONENO, BIRTHDATE 
-                      FROM   PATMST ";
-
-          
-            if (!string.IsNullOrEmpty(txtPatId.Text))
+            try
             {
-                string cond = "%" + txtPatId.Text + "%";
-                query += "WHERE    (PATID LIKE ?)";
+                DataTable dt = GetPatMst(txtPatId.Text.NtoE());
 
-                hParams.Add(idx++, cond);
-              
+                if (dt == null || dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("환자데이터가 존재하지 않습니다.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                DataRow drow = dt.Rows[0];
+
+                txtPatName.Text = drow["PATNAME"].NtoE();
+                txtPrsnIdPre.Text = drow["PRSNIDPRE"].NtoE();
+                txtPrsnIdPost.Text = drow["PRSNIDPOST"].NtoE();
+                txtSex.Text = drow["SEX"].NtoE();
+                txtAddress.Text = drow["HOMEADDR"].NtoE();
+                txtHandPhoneNo.Text =drow["HANDPHONENO"].NtoE();
+                txtBirthDay.Text = drow["BIRTHDATE"].NtoE();
                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
 
             }
-            QryMgr.ExecuteReader(out ds, query, hParams);
-
-            txtPatName.DataBindings.Add("Text", ds.Tables[0], "PATNAME");
-            txtPrsnIdPre.DataBindings.Add("Text", ds.Tables[0], "PRSNIDPRE");
-            txtPrsnIdPost.DataBindings.Add("Text", ds.Tables[0], "PRSNIDPOST");
-            txtSex.DataBindings.Add("Text", ds.Tables[0], "SEX");
-            txtAddress.DataBindings.Add("Text", ds.Tables[0], "HOMEADDR");
-            txtHandPhoneNo.DataBindings.Add("Text", ds.Tables[0], "HANDPHONENO");
-            txtBirthDay.DataBindings.Add("Text", ds.Tables[0], "BIRTHDATE");
         }
 
       
