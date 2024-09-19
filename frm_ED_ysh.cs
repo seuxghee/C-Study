@@ -146,19 +146,6 @@ namespace Education
                 MessageBox.Show(ex.Message);
             }
         }
-        //초기화
-        private void btnNew_Click(object sender, EventArgs e)
-        {
-            txtPatId.Text = "";
-            txtPatName.Text = "";
-            txtPrsnIdPre.Text = "";
-            txtPrsnIdPost.Text = "";
-            txtSex.Text = "";
-            txtAddress.Text = "";
-            txtHandPhoneNo.Text = "";
-            txtBirthDay.Text = "";
-
-        }
 
         //신규환자 정보 생성 코드
         private void InsertPatient()
@@ -452,45 +439,46 @@ namespace Education
                 return "00";
             }
         }
-       
+
         //신규환자 정보 수정 코드
-        private void UpdatePatient() 
+        private void UpdatePatient()
         {
             try
             {
-               
+
                 Hashtable hParams = new Hashtable();
                 string query = string.Empty;
                 int idx = 1;
-               
+
                 query = (@" UPDATE PATMST 
                             SET PATNAME = ?,    PRSNIDPRE = ?,      PRSNIDPOST = ?,
-                                  SEX = ?,   HOMEADDR = ?,   HANDPHONENO = ?,    BIRTHDATE = ?
+                                SEX = ?,        HOMEADDR = ?,       HANDPHONENO = ?,    BIRTHDATE = ?
                             WHERE PATID = ?");
 
-               
-                hParams.Add(idx++, txtPatName.Text);  
-                hParams.Add(idx++, txtPrsnIdPre.Text);       
-                hParams.Add(idx++, txtPrsnIdPost.Text); 
-    
-                hParams.Add(idx++, txtSex.Text);            
-                hParams.Add(idx++, txtAddress.Text);       
-                hParams.Add(idx++, txtHandPhoneNo.Text);    
-                hParams.Add(idx++, txtBirthDay.Text);    
-   
-                hParams.Add(idx++, txtPatId.Text);           
-            
+
+                hParams.Add(idx++, txtPatName.Text);
+                hParams.Add(idx++, txtPrsnIdPre.Text);
+                hParams.Add(idx++, txtPrsnIdPost.Text);
+
+                hParams.Add(idx++, txtSex.Text);
+                hParams.Add(idx++, txtAddress.Text);
+                hParams.Add(idx++, txtHandPhoneNo.Text);
+                hParams.Add(idx++, txtBirthDay.Text);
+
+                hParams.Add(idx++, txtPatId.Text);
+
 
                 if (QryMgr.ExecuteNonQuery(query, hParams) < 0) throw new Exception();
 
-                MessageBox.Show( "수정되었습니다.");
-             
+                MessageBox.Show("수정되었습니다.");
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
+       
         //환자정보 삭제 코드
         private void DeletePatient()
         {
@@ -499,16 +487,16 @@ namespace Education
                 Hashtable hParams = new Hashtable();
                 string query = string.Empty;
                 int idx = 1;
-               
-                query = (@" DELETE FROM PATMST WHERE PATID = ? "); 
-   
-                hParams.Add(idx++, txtPatId.Text);           
-            
+
+                query = (@" DELETE FROM PATMST WHERE PATID = ? ");
+
+                hParams.Add(idx++, txtPatId.Text);
+
 
                 if (QryMgr.ExecuteNonQuery(query, hParams) < 0) throw new Exception();
 
-                MessageBox.Show( "삭제되었습니다.");
-             
+                MessageBox.Show("삭제되었습니다.");
+
             }
             catch (Exception ex)
             {
@@ -530,6 +518,7 @@ namespace Education
                 MessageBox.Show(ex.Message);
             }
         }
+       
         //수정버튼
         private void btnUpd_Click(object sender, EventArgs e)
         {
@@ -543,11 +532,25 @@ namespace Education
                 MessageBox.Show(ex.Message);
             }
         }
+       
         //삭제버튼
         private void btnDel_Click(object sender, EventArgs e)
         {
             DeletePatient();
         }
+       
+        //초기화 버튼
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            txtPatId.Text = "";
+            txtPatName.Text = "";
+            txtPrsnIdPre.Text = "";
+            txtPrsnIdPost.Text = "";
+            txtSex.Text = "";
+            txtAddress.Text = "";
+            txtHandPhoneNo.Text = "";
+            txtBirthDay.Text = "";
 
+        }
     }
 }
